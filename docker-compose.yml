@@ -20,7 +20,7 @@ services:
     volumes:
       - /app/node_modules # Dont override or redirect access to this directory in the container.
       - ./server:/app
-    environment:
+    environment: # placeholders, not being used.
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - PGUSER=postgres
