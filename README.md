@@ -56,3 +56,9 @@
 7. `travis encrypt-file service-account.json -r s1dequest/multi-k8s`
   * Follow directions in output.
 8. DELETE ORIGINAL JSON KEY FILE.
+
+### The Tagging Conundrum, Revisited
+* The tagging philosophy for this project is going to include 2 tags for each `docker build`
+  * `-t s1dequest/multi-client:latest`: Anyone pulling the docker image will not have to specify a tag if they want the most recent version.
+  * `-t s1dequest/multi-client:$SHA`: Appends a unique commit identifier (via `git rev-parse HEAD`) to allow for easier debugging and version control.
+    * To debug a particular tag, simply `git checkout $SHA`.
