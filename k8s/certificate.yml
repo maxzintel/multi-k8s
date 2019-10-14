@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: max-zintel-dev-tls
+spec:
+  secretName: max-zintel-dev
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: maxzintel.dev
+  dnsNames:
+    - maxzintel.dev
+    - www.maxzintel.dev
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - maxzintel.dev
+          - www.maxzintel.dev
